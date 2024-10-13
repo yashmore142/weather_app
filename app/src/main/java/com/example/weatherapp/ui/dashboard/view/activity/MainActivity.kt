@@ -29,7 +29,7 @@ import com.example.weatherapp.ui.dashboard.model.hourely_forecast_response.DataL
 import com.example.weatherapp.ui.dashboard.view.adapter.HourlyForecastAdapter
 import com.example.weatherapp.ui.dashboard.viewmodel.DashBoardViewModel
 import com.example.weatherapp.ui.dashboard.viewmodel.RoomDashboardViewModel
-import com.example.weatherapp.ui.favouriteweather.FavouriteWeatherActivity
+import com.example.weatherapp.ui.favouriteweather.activity.FavouriteWeatherActivity
 import com.example.weatherapp.utils.Constants.tempKelvinToCelsius
 import com.example.weatherapp.utils.SessionManager
 import com.google.android.gms.common.api.ResolvableApiException

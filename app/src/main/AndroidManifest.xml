@@ -27,11 +27,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.favouriteweather.FavouriteWeatherActivity"
+            android:name=".ui.favouriteweather.activity.FavouriteWeatherActivity"
             android:exported="false" />
         <activity
             android:name=".ui.dashboard.view.activity.MainActivity"
-            android:exported="false">
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan">
 
         </activity>
     </application>

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_favourite_"
-        tools:context=".ui.favouriteweather.FavouriteWeatherActivity">
+        tools:context=".ui.favouriteweather.activity.FavouriteWeatherActivity">
 
         <LinearLayout
             android:id="@+id/llTitle"

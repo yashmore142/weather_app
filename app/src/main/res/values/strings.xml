@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Weather App</string>
+    <string name="city">City</string>
+    <string name="location_permissions_are_required_to_use_this_feature">Location permissions are required to use this feature</string>
+    <string name="unable_to_start_gps_resolution">Unable to start GPS resolution</string>
+    <string name="gps_needs_to_be_enabled">GPS needs to be enabled</string>
+    <string name="failed_to_get_last_known_location">Failed to get last known location</string>
+    <string name="daily_forcast">Daily Forcast</string>
+
+</resources>

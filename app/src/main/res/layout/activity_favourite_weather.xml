@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_favourite_"
+        tools:context=".ui.favouriteweather.FavouriteWeatherActivity">
+
+        <LinearLayout
+            android:id="@+id/llTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin_15"
+            android:gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/margin_10"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="@dimen/margin_40"
+                android:layout_height="@dimen/margin_40"
+                android:src="@drawable/ic_arrow_"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin_15"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="@dimen/size_20"
+                android:text="Cities"/>
+
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCities"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_15"
+            android:padding="@dimen/margin_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:listitem="@layout/cities_item"
+            app:layout_constraintTop_toBottomOf="@+id/llTitle"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

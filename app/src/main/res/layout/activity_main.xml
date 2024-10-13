@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.dashboard.view.activity.MainActivity">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/llMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/sunny_img">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/llCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:orientation="horizontal"
+
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <EditText
+                        android:id="@+id/edt_city"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/margin_40"
+                        android:layout_marginHorizontal="@dimen/margin_15"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_edittext_"
+                        android:elevation="@dimen/margin_5"
+                        android:fontFamily="@font/poppins_regular"
+                        android:hint="@string/city"
+                        android:paddingHorizontal="@dimen/margin_10"
+                        android:singleLine="true"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="@dimen/margin_16"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/imgMenu"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imgMenu"
+                        android:layout_width="@dimen/margin_35"
+                        android:layout_height="@dimen/margin_35"
+                        android:layout_marginEnd="@dimen/margin_10"
+                        android:src="@drawable/ic_menu"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <TextView
+                    android:id="@+id/txtTemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_5"
+                    android:layout_marginTop="@dimen/margin_20"
+                    android:fontFamily="@font/poppins_extra_bold_italic"
+                    android:gravity="center"
+                    android:text="20°"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/margin_90"
+                    app:layout_constraintTop_toBottomOf="@+id/llCity" />
+
+                <ImageView
+                    android:id="@+id/imgFavourite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_20"
+                    android:src="@drawable/ic_favourite_border"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/llCity" />
+                <TextView
+                    android:id="@+id/txtHumidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium_italic"
+                    android:text="Mostly Cloudly 20° / 20°"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/margin_16"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTemp" />
+
+
+                <TextView
+                    android:id="@+id/txtMostlyClud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium_italic"
+                    android:text="Mostly Cloudly 20° / 20°"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/margin_20"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtHumidity" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvHourlyForecast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_5"
+                    android:padding="@dimen/margin_10"
+                    app:layout_constraintTop_toBottomOf="@+id/txtMostlyClud" />
+
+                <TextView
+                    android:id="@+id/txtDaily"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:fontFamily="@font/poppins_semi_bold_italic"
+                    android:text="@string/daily_forcast"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/margin_20"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rvHourlyForecast" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDailyForeCast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_5"
+                    android:padding="@dimen/margin_10"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDaily" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/sihmmer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <include layout="@layout/shimmar_dashboard" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

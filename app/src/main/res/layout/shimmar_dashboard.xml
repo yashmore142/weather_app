@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/margin_15"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="@dimen/margin_10"
+            android:background="@drawable/bg_cornered_rectangle_20"
+            android:backgroundTint="#1B1B1B" />
+
+        <View
+            android:layout_width="@dimen/margin_150"
+            android:layout_height="@dimen/margin_150"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="9"
+            android:layout_marginTop="@dimen/margin_15"
+            android:background="@drawable/bg_cornered_rectangle_20"
+            android:backgroundTint="#1B1B1B" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_30"
+            android:layout_marginHorizontal="40dp"
+            android:layout_weight="9"
+            android:layout_marginTop="@dimen/margin_15"
+            android:background="@drawable/bg_cornered_rectangle_20"
+            android:backgroundTint="#1B1B1B" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/margin_15"
+            android:orientation="horizontal">
+            <View
+                android:layout_width="@dimen/margin_65"
+                android:layout_height="@dimen/margin_120"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="@dimen/margin_15"
+                android:background="@drawable/bg_cornered_rectangle_20"
+                android:backgroundTint="#1B1B1B" />
+            <View
+                android:layout_width="@dimen/margin_65"
+                android:layout_height="@dimen/margin_120"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="@dimen/margin_15"
+                android:background="@drawable/bg_cornered_rectangle_20"
+                android:backgroundTint="#1B1B1B" />
+            <View
+                android:layout_width="@dimen/margin_65"
+                android:layout_height="@dimen/margin_120"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="@dimen/margin_15"
+                android:background="@drawable/bg_cornered_rectangle_20"
+                android:backgroundTint="#1B1B1B" />
+            <View
+                android:layout_width="@dimen/margin_65"
+                android:layout_height="@dimen/margin_120"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="@dimen/margin_15"
+                android:background="@drawable/bg_cornered_rectangle_20"
+                android:backgroundTint="#1B1B1B" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/margin_15"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_60"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="@dimen/margin_15"
+            android:background="@drawable/bg_cornered_rectangle_20"
+            android:backgroundTint="#1B1B1B" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_60"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="@dimen/margin_15"
+            android:background="@drawable/bg_cornered_rectangle_20"
+            android:backgroundTint="#1B1B1B" />
+    </LinearLayout>
+    </LinearLayout>
+</layout>

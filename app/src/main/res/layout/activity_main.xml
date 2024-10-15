@@ -16,7 +16,7 @@
             android:id="@+id/llMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/sunny_img">
+   >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -31,7 +31,7 @@
 
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <EditText
+                    <AutoCompleteTextView
                         android:id="@+id/edt_city"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/margin_40"
@@ -47,9 +47,17 @@
                         android:textColorHint="@color/white"
                         android:textSize="@dimen/margin_16"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toLeftOf="@+id/imgMenu"
+                        app:layout_constraintRight_toLeftOf="@+id/imgSearch"
                         app:layout_constraintTop_toTopOf="parent" />
-
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imgSearch"
+                        android:layout_width="@dimen/margin_35"
+                        android:layout_height="@dimen/margin_35"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearance="@dimen/margin_10"
+                        app:layout_constraintRight_toLeftOf="@+id/imgMenu"
+                        android:src="@drawable/ic_search_"
+                        />
                     <ImageView
                         android:id="@+id/imgMenu"
                         android:layout_width="@dimen/margin_35"

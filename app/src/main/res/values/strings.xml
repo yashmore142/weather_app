@@ -7,4 +7,11 @@
     <string name="failed_to_get_last_known_location">Failed to get last known location</string>
     <string name="daily_forcast">Daily Forcast</string>
 
+    <array name="city">
+        <item>Kolhapur</item>
+        <item>Pune</item>
+        <item>Mumbai</item>
+        <item>Kolkata</item>
+        <item>Bengaluru</item>
+    </array>
 </resources>

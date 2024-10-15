@@ -11,9 +11,10 @@ import com.example.weatherapp.databinding.HourlyForecastItemBinding
 import com.example.weatherapp.ui.dashboard.model.data_insert_room.WeatherRoomData
 import com.example.weatherapp.ui.dashboard.view.activity.MainActivity
 import com.example.weatherapp.ui.dashboard.view.adapter.HourlyForecastAdapter
+import com.example.weatherapp.ui.favouriteweather.interfaces.DeleteWeatherClick
 import com.example.weatherapp.utils.Constants
 
-class CitiesAdapter(var context: Context, var list: List<WeatherRoomData>) :
+class CitiesAdapter(var context: Context, var list: List<WeatherRoomData>,var deleteWeatherClick: DeleteWeatherClick) :
     RecyclerView.Adapter<CitiesAdapter.CitiesHolder>() {
     class CitiesHolder constructor(var binding: CitiesItemBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -34,6 +35,9 @@ class CitiesAdapter(var context: Context, var list: List<WeatherRoomData>) :
         holder.binding.txtMinMax.setText(list[position].minmaxtemp)
         holder.binding.txtHumidity.setText("Humidity :" +list[position].humidity + " %")
 
+        holder.binding.imgDelete.setOnClickListener {
+            deleteWeatherClick.deleteClick(list[position])
+        }
         holder.binding.root.setOnClickListener {
             Log.i("citiesintentData","lat = ${list[position].lat},${list[position].longitude}")
             val intent = Intent(context,MainActivity::class.java)

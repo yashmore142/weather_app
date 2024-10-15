@@ -27,6 +27,12 @@ class RoomFavouriteViewModel @Inject constructor(
         MutableLiveData(emptyList())
     val responseGetWeather: LiveData<List<WeatherRoomData>> = _responseGetWeather
 
+
+    private var deleteFavouriteJob: Job? = null
+    private var _responseDeleteWeather: MutableLiveData<List<WeatherRoomData>> =
+        MutableLiveData(emptyList())
+    val responseDeleteWeather: LiveData<List<WeatherRoomData>> = _responseDeleteWeather
+
     fun getWeather() {
         getFavouriteJob?.cancel()
 
@@ -36,6 +42,21 @@ class RoomFavouriteViewModel @Inject constructor(
                     roomRepository.getWeather()
                 }
                 _responseGetWeather.value = response
+            } catch (e: Exception) {
+                throw e
+            }
+        }
+    }
+
+    fun deleteWeather(weatherRoomData: WeatherRoomData) {
+        deleteFavouriteJob?.cancel()
+
+        deleteFavouriteJob = viewModelScope.launch(coroutineExceptionHandler) {
+            try {
+                val response = withContext(Dispatchers.IO) {
+                    roomRepository.deleteData(weatherRoomData)
+                }
+                //_responseGetWeather.value = response
             } catch (e: Exception) {
                 throw e
             }

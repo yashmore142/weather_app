@@ -6,4 +6,5 @@ interface RoomRepository {
     suspend fun getWeather () :List<WeatherRoomData>
 
     suspend fun addData(weather: WeatherRoomData)
+    suspend fun deleteData(weather: WeatherRoomData)
 }

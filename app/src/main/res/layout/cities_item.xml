@@ -35,10 +35,19 @@
                 android:padding="@dimen/margin_5"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/imgDelete"
                 android:fontFamily="@font/poppins_bold_italic"
                 android:textSize="@dimen/size_22"/>
 
+            <ImageView
+                android:id="@+id/imgDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:src="@drawable/ic_delete_"
+                android:tint="@color/black"
+                />
             <TextView
                 android:id="@+id/txtMinMax"
                 android:layout_width="wrap_content"

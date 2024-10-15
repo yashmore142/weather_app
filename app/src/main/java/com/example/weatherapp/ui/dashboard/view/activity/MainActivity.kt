@@ -14,6 +14,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -56,32 +58,12 @@ class MainActivity : AppCompatActivity() {
     var layoutManager: LinearLayoutManager? = null
     private var lat = ""
     private var lon = ""
-
+    val cities = arrayOf("Kolhapur","Kolkata", "Pune", "Bengaluru", "Mumbai","Beluga", "Sangli","Thane")
     @Inject
     lateinit var sessionManager: SessionManager
     private val LOCATION_PERMISSION_REQUEST_CODE = 1000
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationPermissionRequest: ActivityResultLauncher<Array<String>>
-    val textwatcher = object : TextWatcher {
-        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-        }
-
-        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            if (getLatLongFromCity(p1.toString()) != null) {
-                apiCall(
-                    getLatLongFromCity(p1.toString())!!.first.toString(),
-                    getLatLongFromCity(p1.toString())!!.second.toString()
-                )
-            }
-
-        }
-
-        override fun afterTextChanged(p0: Editable?) {
-
-        }
-
-    }
 
     private val mViewModel by viewModels<DashBoardViewModel>()
     private val mRoomViewModel by viewModels<RoomDashboardViewModel>()
@@ -124,9 +106,19 @@ class MainActivity : AppCompatActivity() {
             requestLocationPermissions()
         }
         observer()
-        mBinding.edtCity.addTextChangedListener(textwatcher)
+        val adapter: ArrayAdapter<String> =
+            ArrayAdapter<String>(this, R.layout.select_text_for_autocompletetext, cities)
+
+        mBinding.edtCity.setAdapter(adapter)
         mBinding.imgMenu.setOnClickListener {
             startActivity(Intent(this, FavouriteWeatherActivity::class.java))
+        }
+        mBinding.imgSearch.setOnClickListener{
+            val pair = getLatLongFromCity(mBinding.edtCity.text.toString())
+
+            apiCall(pair!!.first.toString(),pair!!.second.toString())
+            val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
         }
         mBinding.imgFavourite.setOnClickListener {
             mBinding.imgFavourite.setImageResource(R.drawable.ic_favourite_fiil)
@@ -141,7 +133,6 @@ class MainActivity : AppCompatActivity() {
             if (addresses!!.isNotEmpty()) {
                 val latitude = addresses[0]!!.latitude
                 val longitude = addresses[0]!!.longitude
-                Toast.makeText(this, "lat =$latitude, long = $longitude", Toast.LENGTH_LONG).show()
                 Pair(latitude, longitude)
             } else {
                 null

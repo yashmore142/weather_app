@@ -9,6 +9,10 @@ class RoomRepositoryImpl @Inject constructor(private val weatherDao: WeatherDao
     override suspend fun getWeather(): List<WeatherRoomData> = weatherDao.getAllData()
 
     override suspend fun addData(weather: WeatherRoomData){
-        weatherDao.addWeather(weather) // No return type; just add the data
+        weatherDao.addWeather(weather)
+    }
+
+    override suspend fun deleteData(weather: WeatherRoomData) {
+        weatherDao.deleteWeather(weather)
     }
 }

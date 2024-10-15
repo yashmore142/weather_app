@@ -18,6 +18,7 @@ class SessionManager(context: Context) {
         editor.putBoolean("DarkTheme", theme)
         editor.apply()
     }
+
     fun getDarkTheme(): Boolean? {
         return prefs.getBoolean("DarkTheme", false)
     }

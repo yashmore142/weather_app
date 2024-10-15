@@ -20,13 +20,13 @@ import com.example.weatherapp.ui.favouriteweather.viewmodel.RoomFavouriteViewMod
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FavouriteWeatherActivity : AppCompatActivity() ,DeleteWeatherClick{
+class FavouriteWeatherActivity : AppCompatActivity(), DeleteWeatherClick {
     private val mRoomViewModel by viewModels<RoomFavouriteViewModel>()
     var layoutManager: LinearLayoutManager? = null
     private lateinit var citiesAdapter: CitiesAdapter
-    private var list : List<WeatherRoomData> = listOf()
+    private var list: List<WeatherRoomData> = listOf()
 
-    private lateinit var mBinding : ActivityFavouriteWeatherBinding
+    private lateinit var mBinding: ActivityFavouriteWeatherBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_favourite_weather)
@@ -40,11 +40,11 @@ class FavouriteWeatherActivity : AppCompatActivity() ,DeleteWeatherClick{
     }
 
     private fun observer() {
-        mRoomViewModel.responseGetWeather.observe(this){
-            if (!it.isEmpty()){
+        mRoomViewModel.responseGetWeather.observe(this) {
+            if (!it.isEmpty()) {
                 list.toMutableList().clear()
                 list = it
-                citiesAdapter = CitiesAdapter(this,list,this)
+                citiesAdapter = CitiesAdapter(this, list, this)
                 mBinding.rvCities.adapter = citiesAdapter
             }
 

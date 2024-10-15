@@ -18,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class RoomDashboardViewModel @Inject constructor(
     private val roomRepository: RoomRepository
-) : ViewModel()  {
+) : ViewModel() {
     var homeErrorData: MutableLiveData<String> = MutableLiveData("")
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
         homeErrorData.value = exception.localizedMessage

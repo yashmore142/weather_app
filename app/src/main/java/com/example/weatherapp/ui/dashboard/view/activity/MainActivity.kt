@@ -60,7 +60,9 @@ class MainActivity : AppCompatActivity() {
     var layoutManager: LinearLayoutManager? = null
     private var lat = ""
     private var lon = ""
-    val cities = arrayOf("Kolhapur","Kolkata", "Pune", "Bengaluru", "Mumbai","Beluga", "Sangli","Thane")
+    val cities =
+        arrayOf("Kolhapur", "Kolkata", "Pune", "Bengaluru", "Mumbai", "Beluga", "Sangli", "Thane")
+
     @Inject
     lateinit var sessionManager: SessionManager
     private val LOCATION_PERMISSION_REQUEST_CODE = 1000
@@ -78,10 +80,10 @@ class MainActivity : AppCompatActivity() {
         mBinding.llMain.visibility = View.GONE
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         val extras = intent.extras
-        if (sessionManager.getDarkTheme()!!){
+        if (sessionManager.getDarkTheme()!!) {
             mBinding.themeSwitch.isChecked = true
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }else{
+        } else {
             mBinding.themeSwitch.isChecked = false
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
@@ -132,10 +134,10 @@ class MainActivity : AppCompatActivity() {
         mBinding.imgMenu.setOnClickListener {
             startActivity(Intent(this, FavouriteWeatherActivity::class.java))
         }
-        mBinding.imgSearch.setOnClickListener{
+        mBinding.imgSearch.setOnClickListener {
             val pair = getLatLongFromCity(mBinding.edtCity.text.toString())
 
-            apiCall(pair!!.first.toString(),pair!!.second.toString())
+            apiCall(pair!!.first.toString(), pair!!.second.toString())
             val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
         }
@@ -203,7 +205,7 @@ class MainActivity : AppCompatActivity() {
                         )
                     }"
                 )
-                mBinding.txtHumidity.setText("Humidity :" +weatherResponse.list[0].main.humidity + " %")
+                mBinding.txtHumidity.setText("Humidity :" + weatherResponse.list[0].main.humidity + " %")
                 hourlyAdapter = HourlyForecastAdapter(this, weatherResponse.list)
                 mBinding.rvHourlyForecast.adapter = hourlyAdapter
             }

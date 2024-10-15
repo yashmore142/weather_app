@@ -15,8 +15,7 @@
         <androidx.core.widget.NestedScrollView
             android:id="@+id/llMain"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-   >
+            android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -43,21 +42,22 @@
                         android:hint="@string/city"
                         android:paddingHorizontal="@dimen/margin_10"
                         android:singleLine="true"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
+                        android:textColor="?attr/colorOnPrimary"
+                        android:textColorHint="?attr/colorOnPrimary"
                         android:textSize="@dimen/margin_16"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toLeftOf="@+id/imgSearch"
                         app:layout_constraintTop_toTopOf="parent" />
+
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imgSearch"
                         android:layout_width="@dimen/margin_35"
                         android:layout_height="@dimen/margin_35"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:shapeAppearance="@dimen/margin_10"
-                        app:layout_constraintRight_toLeftOf="@+id/imgMenu"
                         android:src="@drawable/ic_search_"
-                        />
+                        app:layout_constraintRight_toLeftOf="@+id/imgMenu"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearance="@dimen/margin_10" />
+
                     <ImageView
                         android:id="@+id/imgMenu"
                         android:layout_width="@dimen/margin_35"
@@ -80,7 +80,7 @@
                     android:fontFamily="@font/poppins_extra_bold_italic"
                     android:gravity="center"
                     android:text="20°"
-                    android:textColor="@color/white"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="@dimen/margin_90"
                     app:layout_constraintTop_toBottomOf="@+id/llCity" />
 
@@ -93,6 +93,7 @@
                     android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/llCity" />
+
                 <TextView
                     android:id="@+id/txtHumidity"
                     android:layout_width="wrap_content"
@@ -161,6 +162,19 @@
             <include layout="@layout/shimmar_dashboard" />
 
         </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <Switch
+            android:id="@+id/themeSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_10"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Dark Mode"
+            android:textColor="?attr/colorPrimaryVariant"
+            android:textSize="@dimen/size_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

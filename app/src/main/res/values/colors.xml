@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- Colors for Light Theme -->
+    <color name="colorPrimary">#6200EE</color> <!-- Example Primary Color -->
+    <color name="colorPrimaryVariant">#3700B3</color> <!-- Example Variant for components -->
+    <color name="colorPrimaryDark">#0D47A1</color> <!-- Darker shade for status bar or background -->
+    <color name="colorOnPrimary">#FFFFFF</color> <!-- Text on Primary Background -->
+
 </resources>

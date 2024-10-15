@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.IntentSender
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.location.Geocoder
 import android.location.Location
 import android.os.Build
@@ -21,6 +22,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -76,6 +78,13 @@ class MainActivity : AppCompatActivity() {
         mBinding.llMain.visibility = View.GONE
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         val extras = intent.extras
+        if (sessionManager.getDarkTheme()!!){
+            mBinding.themeSwitch.isChecked = true
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }else{
+            mBinding.themeSwitch.isChecked = false
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
         if (extras != null && extras.containsKey("lat") && extras.containsKey("long")) {
             val latitude = intent.getStringExtra("lat")
             val long = intent.getStringExtra("long")
@@ -109,6 +118,16 @@ class MainActivity : AppCompatActivity() {
         val adapter: ArrayAdapter<String> =
             ArrayAdapter<String>(this, R.layout.select_text_for_autocompletetext, cities)
 
+        mBinding.themeSwitch.setOnCheckedChangeListener { _, isChecked ->
+            sessionManager.saveDarkTheme(isChecked)
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+
+            recreate()
+        }
         mBinding.edtCity.setAdapter(adapter)
         mBinding.imgMenu.setOnClickListener {
             startActivity(Intent(this, FavouriteWeatherActivity::class.java))

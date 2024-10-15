@@ -12,4 +12,14 @@ class SessionManager(context: Context) {
     companion object {
         const val CURRENT_DATA = "current_data"
     }
+
+    fun saveDarkTheme(theme: Boolean) {
+        val editor = prefs.edit()
+        editor.putBoolean("DarkTheme", theme)
+        editor.apply()
+    }
+    fun getDarkTheme(): Boolean? {
+        return prefs.getBoolean("DarkTheme", false)
+    }
+
 }
